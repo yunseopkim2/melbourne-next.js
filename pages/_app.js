@@ -14,8 +14,7 @@ const MyApp= ({ Component, pageProps}) => {
     <Layout>
       <Component {...pageProps} />
     </Layout>
-    </>
-  )
+    </>)
   MyApp.propTypes = {
     Component: PropTypes.elementType.isRequired,
     pageProps: PropTypes.any.isRequired

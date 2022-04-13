@@ -79,7 +79,7 @@ export default function Register3Page() {
                       <Typography className="text-24 font-semibold logo-text" color="inherit">
                       </Typography>
                       <Typography
-                        class="text-16 tracking-widest -mt-8 font-700"
+                        className="text-16 tracking-widest -mt-8 font-700"
                         color="textSecondary"
                       >
                         회원가입
@@ -227,7 +227,7 @@ export default function Register3Page() {
                   />
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    
-                    <Button style={{'margin-top' : '60px'}}
+                    <Button style={{'marginTop' : '60px'}}
                     variant="contained"
                     color="primary"
                     className="w-full mx-auto mt-16"
