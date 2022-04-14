@@ -1,6 +1,6 @@
 import axios from "axios";
 import React,{useState} from "react"
-import Layout from "./components/Layout";
+
 
 export default function Bmi(){
     const proxy = 'http://localhost:5000'

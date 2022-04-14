@@ -3,7 +3,7 @@ import { board } from "board";
 import React, { useState } from "react"
 import { useDispatch } from 'react-redux'
 import style from '/pages/board/styles/board-form.module.css'
-import { addBoard } from '../../redux/reducers/board.reducer'
+import { addBoard } from '../../redux/reducers/boardReducer.ts'
 export default function BoardhtmlhtmlForm() {
     const [inputs, setInputs] = useState({})
     const [value, setValue] = useState('')
