@@ -5,7 +5,7 @@
     "include": [
         "pages/**/*.js",
         "redux/**/*.ts"
-    ],
+, "pages/user/join.2js"    ],
     "exclude": [
         "node_modules",
         "**/*.spec.ts"

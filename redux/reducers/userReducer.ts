@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit"
 // parameter
 
 // payload
-export interface JoinPayload{
-    data:{
-        user: {
+export interface userType{
+    
+
             userid: string;
             password: string;  
             email: string;
@@ -12,37 +12,44 @@ export interface JoinPayload{
             phone: string;
             birth: string;
             address: string;
-        }
-    }
+        
+    
 }
 
 // state
 export interface UserState{
-    userLoading: boolean;
-    userData: any;
+    loading: boolean;
+    data: userType[];
     error: any;
-    token: null;
 }
 
 
 const initialState: UserState = {
-    userLoading: false,
-    userData: null,
-    error: null,
-    token: null
+    
+    loading: false,
+    data: [],
+    error: null
 }
 
 const userSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {
-        joinRequest(state: UserState, action){ state.userLoading = true, state.error = null},
-        joinSuccess(state, action){ state.userLoading = false, state.error = action.payload},
-        joinFailure(state, action){ state.userLoading = false, state.error = action.payload}
+        joinRequest(state: UserState, payload) {
+            alert('진행 2: 리듀서 내부');
+            state.loading = true;
+        },
+        joinSuccess(state, { payload }) {
+            state.data = [...state.data, payload]
+            state.loading = false;
+        },
+
+        joinFailure(state, { payload }) {
+            state.data = payload
+            state.loading = false
+        }
     }
 })
 const { reducer, actions } = userSlice
-export const {
-    joinRequest, joinSuccess, joinFailure
-} = actions
+export const userActions = actions
 export default reducer

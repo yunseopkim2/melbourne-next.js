@@ -1,17 +1,29 @@
 .table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.td {
-    border: 1px solid rgb(33, 126, 124);
-    text-align: left;
-    padding: 8px;
-    
-}
-
-.tr {
+    margin: 10px 0;
+    font-size: 15px;
+    width: 900px;
     border: 1px solid black;
-    background-color: rgb(53, 176, 135);
+}
+
+.table thead th {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.table td {
+    padding: 12px 15px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table tbody tr {
+    border: 1px solid black;
+}
+
+.table tbody tr:last-of-type {
+    border: 1px solid black;
 }

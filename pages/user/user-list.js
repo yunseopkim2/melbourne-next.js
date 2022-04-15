@@ -17,17 +17,20 @@ const Table = ({ columns, colspan, data}) => {
                                       <td colSpan={colspan} className={tableStyles.td}>데이터가 없습니다</td>
                                       </tr>
                 :data.map((user) => (
-                <tr className={tableStyles.tr}  key={user.username} >
+                <tr className={tableStyles.tr}  key={user.userid} >
                   <td className={tableStyles.td}>
                     <Link href={{pathname:`/user/[username]`,
-                                query:{selectedUser: 'test'}}} as={`/user/${user.username}`}>
-                      <a>{user.username}</a>
+                                query:{selectedUser: 'test'}}} as={`/user/${user.userid}`}>
+                      <a>{user.userid}</a>
                     </Link>
                     
                   </td>
-                  <td className={tableStyles.td}>{user.pw}</td>
+                  <td className={tableStyles.td}>{user.password}</td>
+                  <td className={tableStyles.td}>{user.email}</td>
                   <td className={tableStyles.td}>{user.name}</td>
-                  <td className={tableStyles.td}>{user.telephone}</td>
+                  <td className={tableStyles.td}>{user.phone}</td>
+                  <td className={tableStyles.td}>{user.birth}</td>
+                  <td className={tableStyles.td}>{user.address}</td>  
                 </tr>
             ))}
             
@@ -38,7 +41,7 @@ const Table = ({ columns, colspan, data}) => {
   
 export default function UserList(){
 
-    const columns = ["Username", "Password", "Name", "Telephone"];
+    const columns = ["Userid", "Password", "email","Name", "Phone", "Birth", "Address"];
     const [data, setData] = useState([])
     useEffect(()=>{
       axios.get('http://localhost:5000/api/user/list').then(res=>{

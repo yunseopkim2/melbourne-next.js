@@ -1,8 +1,10 @@
 .nav {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(114, 227, 202);
+    margin: 0 auto;
+    font-size: 15px;
+    width: 900px;
+    border: 1px solid black;
 }
+
 .li {
     display: inline;
     margin-left: 40px;

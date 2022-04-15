@@ -28,7 +28,7 @@ const Table = ({ columns, colSpan, data }) => {
 }
 
 export default function Boardlist() {
-  const columns = ['passengerId', 'name', 'teamId', 'subject'];
+  const columns = ["글번호", "제목", "작성자", "주제"];
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get('http://localhost:5000/api/board/list').then(res => {
@@ -36,7 +36,7 @@ export default function Boardlist() {
     }).catch()
   },[])
   return (<>
-    <h1>사용자 목록</h1>
+    <h1>게시판</h1>
     <div>
     <Table columns={columns} colSpan ={4} data={data}/>
     </div>
