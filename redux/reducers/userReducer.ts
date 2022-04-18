@@ -3,17 +3,14 @@ import { createSlice } from "@reduxjs/toolkit"
 
 // payload
 export interface userType{
-    
-
-            userid: string;
+              userid: string;
             password: string;  
             email: string;
             name: string;  
             phone: string;
             birth: string;
             address: string;
-        
-    
+           
 }
 
 // state

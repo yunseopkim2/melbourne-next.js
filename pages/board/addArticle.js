@@ -3,25 +3,32 @@ import { board } from "board";
 import React, { useState } from "react"
 import { useDispatch } from 'react-redux'
 import style from '/pages/board/styles/board-form.module.css'
-import { addBoard } from '../../redux/reducers/boardReducer.ts'
+import { boardActions } from '../../redux/reducers/boardReducer.ts'
 export default function BoardhtmlhtmlForm() {
-    const [inputs, setInputs] = useState({})
-    const [value, setValue] = useState('')
+
+      const [board, setBoard] =useState({
+         passengerId:'', name:'', teamId:'', subject:''
+    })
     const dispatch = useDispatch()
-    const handleChange = e => {
+    const handleChange = e =>{
         e.preventDefault()
-        const {value, name} = e.target;
-        setInputs({ ...inputs, [name]: value })
+        const{name, value} = e.target;
+        setBoard({...board,[name]: value})
     }
-  
    
     return (<>
         <h1>게시물 등록</h1>
-        <form onSubmit={e => {
+           <form onSubmit={e => {
             e.preventDefault()
-            alert('value ?' + value)
-            if(value) dispatch(addBoard({ board : value }))
-        }}>
+            alert(' 진행 1: 회원가입 클릭 ');
+            dispatch(boardActions.joinRequest(board))
+            setBoard({
+                passengerId:'', name:'', teamId:'', subject:''
+            })
+        }
+    }
+    >
+  
         <div className={style.container}>
             
             <div className={style.row}>
@@ -29,7 +36,7 @@ export default function BoardhtmlhtmlForm() {
                 <label className={style.label} htmlFor="passengerId">글 제목</label>
                 </div>
                 <div className={style.col75}>
-                <input type="text" className={style.inputText} onChange={e => setValue(e.target.value)}
+                <input type="text" className={style.inputText} onChange={handleChange}
                 id="passengerId" name="passengerId" placeholder="글 제목 입력"/>
                 </div>
                 </div>
@@ -39,7 +46,7 @@ export default function BoardhtmlhtmlForm() {
                 <label htmlFor="name">게시글 작성자 이름</label>
                 </div>
                 <div className={style.col75}>
-                <input type="text" className={style.inputText} onChange={e => setValue(e.target.value)}
+                <input type="text" className={style.inputText} onChange={handleChange}
                 id="name" name="name" placeholder="게시글 작성자 이름 입력"/>
                 </div>
             <div className={style.row}>
@@ -47,7 +54,7 @@ export default function BoardhtmlhtmlForm() {
                 <label htmlFor="teamId">응원팀</label>
                 </div>
                 <div className={style.col75}> 
-                        <select id="teamId" name="teamId" onChange={e => setValue(e.target.value)}>
+                        <select id="teamId" name="teamId" onChange={handleChange}>
                              <option value="">응원팀 선택</option>
                     <option value="K09" >Fc seoul</option>
                     <option value="K02">Suwon Samseong blue wings</option>
@@ -60,7 +67,7 @@ export default function BoardhtmlhtmlForm() {
                 <label htmlFor="subject">게시글 내용</label>
                 </div>
                 <div className={style.col75}>
-                <input type="textarea"  id="subject" name="subject"  style={{height:200 + "px"}} onChange={e => setValue(e.target.value)}></input>
+                <input type="textarea"  id="subject" name="subject"  style={{height:200 + "px"}} onChange={handleChange}></input>
                 </div>
                     </div>
             </div>

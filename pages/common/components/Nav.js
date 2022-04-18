@@ -10,14 +10,15 @@ export default function Nav() {
       <ul>
         <li className={style.code}><button onClick={ () => {history.back('/'); } } >뒤로가기</button>
         <li className={styles.li}> <Link href='/'>Home</Link> </li>
-        <li className={styles.li}> <Link href='/basic/components/Layout'>basic</Link> </li>
-        <li className={styles.li}> <Link href='/game'>Game</Link> </li>
-        <li className={styles.li}> <Link href='/user/components/Layout'>User</Link></li>
-              <li className={styles.li}> <Link href='/board/components/Layout'>BoardList</Link></li>
-        <li className={styles.li}> <Link href='/game/game-list'>게임목록</Link></li>
-      <li className={styles.li}> <Link href='/gmae/team-list'>팀목록</Link></li>
-    <li className={styles.li}> <Link href='/todo/todo-list'>스케줄목록</Link></li>
-    <li className={styles.li}> <Link href='/todo/todo'>스케줄등록</Link></li></li>
+        <li className={styles.li}> <Link href='/basic/components/Layout'>Basic</Link> </li>
+          <li className={styles.li}> <Link href='/game/components/Layout'>Game</Link> </li>
+          <li className={styles.li}> <Link href='/user/components/Layout'>회원</Link> </li>
+              <li className={styles.li}> <Link href='/board/components/Layout'>게시판</Link></li>
+      <li className={styles.li}> <Link href='/game/components/teamLayout'>팀 목록</Link></li>
+      <li className={styles.li}> <Link href='/todo/components/Layout'>스케줄</Link></li>
+ </li>
+   
+    
       </ul>
     </nav>
   );

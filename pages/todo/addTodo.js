@@ -12,7 +12,7 @@ export default function  Join(){
         const{name, value} = e.target;
         setTodo({...todo,[name]: value})
     }
-    return <><h1>회원가입폼</h1>
+    return <><h1>스케줄 등록</h1>
     <form onSubmit={e => {
             e.preventDefault()
             alert(' 진행 1: 회원가입 클릭 ');
