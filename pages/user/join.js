@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { userActions } from '../../redux/reducers/userReducer.ts';
-import tableStyles from '../common/styles/table.module.css'
+import tableStyles from 'common/styles/table.module.css'
 export default function  Join(){
     const [user, setUser] =useState({
         userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
@@ -12,8 +12,7 @@ export default function  Join(){
         const{name, value} = e.target;
         setUser({...user,[name]: value})
     }
-    return <><h1>회원가입폼</h1>
-    <form onSubmit={
+    return <form onSubmit={
         e => {
             e.preventDefault()
             alert(' 진행 1: 회원가입 클릭 ');
@@ -21,11 +20,11 @@ export default function  Join(){
             setUser({
                 userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
             })
+            window.location.href = "./login"
         }
     }
     >
-  
-     <table className={tableStyles.table}>
+        <table className={tableStyles.table}>
             <thead>
                 <tr>
                     <th colSpan={2}><h1>회원가입</h1></th>
@@ -44,17 +43,14 @@ export default function  Join(){
                     <td htmlFor=""><b>이메일</b></td>
                     <td><input type="text" name='email' onChange={handleChange}/></td>
                 </tr>
-
                 <tr>
                     <td htmlFor=""><b>이름</b></td>
                     <td><input type="text" name='name' onChange={handleChange}/></td>
                 </tr>
-
                 <tr>
                     <td><b>전화번호</b></td>
                     <td><input type="text" name='phone' onChange={handleChange}/></td>
                 </tr>
-
                 <tr>
                     <td><b>생년월일</b></td>
                     <td><input type="text" name='birth' onChange={handleChange}/></td>
@@ -68,6 +64,5 @@ export default function  Join(){
                 </tr>
             </tbody>
         </table>
-        </form>
-        </>
+    </form>
 }
