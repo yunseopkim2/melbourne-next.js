@@ -1,10 +1,28 @@
 import tableStyles from '../common/styles/table.module.css'
-export default function  Login(){
-    const handleChange = ()=>{}
+import React,{useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { userActions } from '../../redux/reducers/userReducer.ts';
+
+
+export default function Login() {
+    const dispatch = useDispatch()
+    const [login, setLogin] = useState({
+        userid: '', password: ''
+    })
+    const handleChange = e => {
+        e.preventDefault()
+        const{name, value} = e.target;
+        setLogin({...login,[name]: value})
+    }
     return <form onSubmit={
         e => {
             e.preventDefault()
-            
+            alert(' 진행 1: 회원가입 클릭 ');
+             dispatch(userActions.loginRequest(login))
+            setLogin({
+                userid:'', password:''
+            })
+            window.location.href = "./login"
         }
     }
     >

@@ -44,6 +44,19 @@ const userSlice = createSlice({
         joinFailure(state, { payload }) {
             state.data = payload
             state.loading = false
+        },
+        loginRequest(state: UserState, payload) {
+            alert('진행 2: 로그인 리듀서 내부');
+            state.loading = true;
+        },
+        loginSuccess(state, { payload }) {
+            state.data = [...state.data, payload]
+            state.loading = false;
+        },
+
+        loginFailure(state, { payload }) {
+            state.data = payload
+            state.loading = false
         }
     }
 })
